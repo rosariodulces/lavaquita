@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Vaquita Adictacos - El Auténtico Sabor de Sonora</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for stars -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Applying Inter font to the body */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827; /* bg-gray-900 */
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Custom styles for hero section background */
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://lh3.googleusercontent.com/p/AF1QipMmhfwkxVqnAnUKLzOzF7-DA4PaQWW4H7pLGUef=s680-w680-h510-rw');
+            background-size: cover;
+            background-position: center;
+        }
+        /* Custom class for the cow-themed cards */
+        .cow-card {
+            color: #1f2937; /* text-gray-800 */
+            border: 1px solid #e5e7eb; /* border-gray-200 */
+            background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://i.imgur.com/IYusiju.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+        /* New class for the main content background */
+        .content-bg {
+            background-image: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url('https://i.imgur.com/AUIhXSE.jpg');
+            background-size: cover;
+            background-attachment: fixed; /* Parallax effect */
+            background-position: center;
+            padding: 2.5rem; /* p-10 */
+            border-radius: 0.5rem; /* rounded-lg */
+        }
+        /* Modal Styles */
+        .modal {
+            transition: opacity 0.25s ease;
+        }
+        /* Loading Spinner */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #ca8a04; /* amber-500 */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Title with texture and improved visibility */
+        .title-texture {
+            background-image: url('https://i.imgur.com/IYusiju.jpeg');
+            background-size: cover;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-stroke: 1px white; /* White stroke for visibility */
+            text-stroke: 1px white;
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.8));
+        }
+    </style>
+</head>
+<body class="text-white">
+
+    <!-- Header y Hero Section -->
+    <header id="top" class="hero-bg shadow-lg">
+        <div class="container mx-auto px-6 py-20 text-center">
+             <!-- Logo Image -->
+            <img src="https://i.imgur.com/AiqsrYm.jpg" alt="Logo de La Vaquita Adictacos" class="h-40 w-40 mx-auto mb-4 rounded-full shadow-lg">
+            <h1 class="text-5xl md:text-7xl font-black title-texture">La Vaquita Adictacos</h1>
+            <h2 class="text-2xl md:text-3xl font-bold mt-2 text-white drop-shadow-md">El Auténtico Sabor de Sonora</h2>
+            <div class="mt-8 max-w-3xl mx-auto">
+                <h3 class="text-xl font-bold mb-2">Bienvenidos a La Vaquita: Donde cada taco es una obra de arte.</h3>
+                <p class="text-lg text-gray-200">
+                    En La Vaquita Adictacos, te traemos los sabores más auténticos de Sonora aquí en Tucson. Nuestro nombre lo dice todo: somos expertos en carne, especialmente en nuestra jugosa birria y cabeza. Cada platillo que servimos está preparado con ingredientes frescos y una pasión que se siente en cada mordida. Ven y descubre por qué una "Vaca" de nuestro menú se convertirá en tu nueva adicción.
+                </p>
+                <p class="text-2xl font-bold mt-6 text-amber-300">¡Te esperamos para que compruebes el sabor!</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="container mx-auto px-6 py-12">
+        <div class="content-bg">
+            <!-- Menú Section -->
+            <section id="menu">
+                <div class="flex justify-center items-center mb-12">
+                     <img src="https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrM71L0bSKr4ZRugn0L1jcP0CuJRoxyY6-nhPv-OLRnkz2Sz0Bq7r-6ECF3j5dSVtcDrI5LzaMgF9DRl3RSH4cARPYH36ZNkMr0apiH7dRu8ZEWo0Tzk1pD3phacV6vI5-67c0R=s680-w680-h510-rw" alt="Icono de Menu" class="h-28 w-28 rounded-full mr-4">
+                    <h2 class="text-4xl font-black text-center uppercase title-texture">Nuestro Menú</h2>
+                </div>
+                
+                <!-- Platillos Principales -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-bold text-center mb-8 text-white uppercase">Platillos Principales</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Pizzabirria -->
+                        <div class="cow-card menu-item-clickable rounded-lg p-6 shadow-xl transform hover:scale-105 transition-transform duration-300 cursor-pointer" data-image="https://i.imgur.com/lybEPUH.jpeg" data-title="Pizzabirria" data-description="Nuestra famosa pizza de birria para 4 personas. ¡Incluye un consomé!">
+                            <h4 class="text-xl font-black text-gray-900 uppercase">Pizzabirria</h4>
+                            <p class="mt-2 text-gray-700">Nuestra famosa pizza de birria para 4 personas. ¡Incluye un consomé!</p>
+                            <p class="mt-4 text-2xl font-black text-gray-900">$26.00</p>
+                        </div>
+                        <!-- Burritos -->
+                        <div class="cow-card menu-item-clickable rounded-lg p-6 shadow-xl transform hover:scale-105 transition-transform duration-300 cursor-pointer" data-image="https://www.azcentral.com/gcdn/presto/2022/03/30/PPHX/5d356d08-b642-4974-b2ad-d3ab674045bb-burritos.-tacos-boys-cabeza.jpg?crop=1999,1125,x0,y76" data-title="Burrito" data-description="Burro grande( birria, cabeza ,pastor, chicharrón, carne con chile colorado y carnitas) ; preparado con queso y frijol( opcional)">
+                            <h4 class="text-xl font-black text-gray-900 uppercase">Burritos</h4>
+                            <p class="mt-2 text-gray-700">Burro grande( birria, cabeza ,pastor, chicharrón, carne con chile colorado y carnitas) ; preparado con queso y frijol( opcional)</p>
+                            <p class="mt-4 text-2xl font-black text-gray-900">$15.00</p>
+                        </div>
+                        <!-- Ramen de Birria -->
+                        <div class="cow-card menu-item-clickable rounded-lg p-6 shadow-xl transform hover:scale-105 transition-transform duration-300 cursor-pointer" data-image="https://i.imgur.com/7Ud6TyC.jpeg" data-title="Ramen de Birria" data-description="Sopa de ramen cocida con nuestro consomé de birria, carne y queso.">
+                            <h4 class="text-xl font-black text-gray-900 uppercase">Ramen de Birria</h4>
+                            <p class="mt-2 text-gray-700">Sopa de ramen cocida con nuestro consomé de birria, carne y queso.</p>
+                            <p class="mt-4 text-2xl font-black text-gray-900">$9.00</p>
+                        </div>
+                        <!-- La Vaca (Quesabirria) -->
+                        <div class="cow-card menu-item-clickable rounded-lg p-6 shadow-xl transform hover:scale-105 transition-transform duration-300 cursor-pointer" data-image="https://i.imgur.com/H4BM6Kf.jpeg" data-title="La Vaca (Quesabirria)" data-description="La joya de la corona. Tortilla grande de maíz, queso y tu carne favorita.">
+                            <h4 class="text-xl font-black text-gray-900 uppercase">La Vaca (Quesabirria)</h4>
+                            <p class="mt-2 text-gray-700">La joya de la corona. Tortilla grande de maíz, queso y tu carne favorita.</p>
+                            <p class="mt-4 text-2xl font-black text-gray-900">$7.50</p>
+                        </div>
+                        <!-- Menudo -->
+                        <div class="cow-card menu-item-clickable rounded-lg p-6 shadow-xl transform hover:scale-105 transition-transform duration-300 cursor-pointer" data-image="https://i.imgur.com/2TqXOer.jpeg" data-title="Menudo (Por Galón)" data-description="Un galón de nuestro menudo casero, con el sazón que te recuerda al de mamá.">
+                            <h4 class="text-xl font-black text-gray-900 uppercase">Menudo (Por Galón)</h4>
+                            <p class="mt-2 text-gray-700">Un galón de nuestro menudo casero, con el sazón que te recuerda al de mamá.</p>
+                            <p class="mt-4 text-2xl font-black text-gray-900">$25.00</p>
+                        </div>
+                        <!-- Plato de Birria/Cabeza -->
+                        <div class="cow-card menu-item-clickable rounded-lg p-6 shadow-xl transform hover:scale-105 transition-transform duration-300 cursor-pointer" data-image="https://i.imgur.com/SQlhasp.jpeg" data-title="Plato de Birria/Cabeza" data-description="Servido con 5 tortillas recién hechas a mano.">
+                            <h4 class="text-xl font-black text-gray-900 uppercase">Plato de Birria/Cabeza</h4>
+                            <p class="mt-2 text-gray-700">Servido con 5 tortillas recién hechas a mano.</p>
+                            <p class="mt-4 text-2xl font-black text-gray-900">$15.00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tacos -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-bold text-center mb-8 text-white uppercase">Tacos</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                        <div class="cow-card menu-item-clickable rounded-lg p-6 shadow-xl text-center transform hover:scale-105 transition-transform duration-300 cursor-pointer" data-image="https://i.imgur.com/UtKG3Np.jpeg" data-title="Taco de Birria" data-description="Carne de res deshebrada, suave y sazonada.">
+                            <h4 class="text-xl font-black text-gray-900 uppercase">Birria</h4>
+                            <p class="mt-2 text-gray-700 h-20">Carne de res deshebrada, suave y sazonada.</p>
+                            <p class="mt-4 text-2xl font-black text-gray-900">$4.50</p>
+                        </div>
+                        <div class="cow-card menu-item-clickable rounded-lg p-6 shadow-xl text-center transform hover:scale-105 transition-transform duration-300 cursor-pointer" data-image="https://i.imgur.com/UtKG3Np.jpeg" data-title="Taco de Cabeza" data-description="Cachete de res tierno y jugoso. ¡Se deshace en la boca!">
+                            <h4 class="text-xl font-black text-gray-900 uppercase">Cabeza</h4>
+                            <p class="mt-2 text-gray-700 h-20">Cachete de res tierno y jugoso. ¡Se deshace en la boca!</p>
+                            <p class="mt-4 text-2xl font-black text-gray-900">$4.50</p>
+                        </div>
+                        <div class="cow-card menu-item-clickable rounded-lg p-6 shadow-xl text-center transform hover:scale-105 transition-transform duration-300 cursor-pointer" data-image="https://mictlanantojitosveganos.com/wp-content/uploads/2024/07/IMG_3816-scaled.jpeg" data-title="Taco de Chicharrón" data-description="Trocitos de chicharrón crujiente en una salsa especial.">
+                            <h4 class="text-xl font-black text-gray-900 uppercase">Chicharrón</h4>
+                            <p class="mt-2 text-gray-700 h-20">Trocitos de chicharrón crujiente en una salsa especial.</p>
+                            <p class="mt-4 text-2xl font-black text-gray-900">$4.50</p>
+                        </div>
+                        <div class="cow-card menu-item-clickable rounded-lg p-6 shadow-xl text-center transform hover:scale-105 transition-transform duration-300 cursor-pointer" data-image="https://i.imgur.com/C6Qut3B.jpeg" data-title="Taco al Pastor" data-description="Carne de cerdo marinada. Un clásico que no falla.">
+                            <h4 class="text-xl font-black text-gray-900 uppercase">Pastor</h4>
+                            <p class="mt-2 text-gray-700 h-20">Carne de cerdo marinada. Un clásico que no falla.</p>
+                            <p class="mt-4 text-2xl font-black text-gray-900">$4.50</p>
+                        </div>
+                        <div class="cow-card menu-item-clickable rounded-lg p-6 shadow-xl text-center transform hover:scale-105 transition-transform duration-300 cursor-pointer" data-image="https://i.imgur.com/YH7ok1K.jpeg" data-title="Taco de Carne con Chile" data-description="Guiso de carne de res tierna en una rica salsa de chiles.">
+                            <h4 class="text-xl font-black text-gray-900 uppercase">Carne con Chile</h4>
+                            <p class="mt-2 text-gray-700 h-20">Guiso de carne de res tierna en una rica salsa de chiles.</p>
+                            <p class="mt-4 text-2xl font-black text-gray-900">$4.50</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Postres y Bebidas -->
+                <div>
+                    <h3 class="text-3xl font-bold text-center mb-8 text-white uppercase">Postres y Bebidas</h3>
+                    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                        <div class="cow-card menu-item-clickable rounded-lg p-6 shadow-xl transform hover:scale-105 transition-transform duration-300 cursor-pointer" data-image="https://www.shutterstock.com/shutterstock/photos/310728002/display_1500/stock-photo-chocolate-vanilla-and-strawberry-ice-cream-in-cone-isolated-on-white-background-310728002.jpg" data-title="Helados" data-description="Elige entre chocolate, vainilla o fresa.">
+                            <h4 class="text-xl font-black text-gray-900 uppercase">Helados</h4>
+                            <p class="mt-2 text-gray-700">Elige entre chocolate, vainilla o fresa.</p>
+                            <p class="mt-4 text-2xl font-black text-gray-900">$4.00</p>
+                        </div>
+                        <div class="cow-card menu-item-clickable rounded-lg p-6 shadow-xl transform hover:scale-105 transition-transform duration-300 cursor-pointer" data-image="https://i.ytimg.com/vi/IZQMgZ4Gs04/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCVcaFlkamVKpQ9t9Q0T1Xaq03pXA" data-title="Malteadas" data-description="Una malteada cremosa de chocolate, vainilla o fresa.">
+                            <h4 class="text-xl font-black text-gray-900 uppercase">Malteadas</h4>
+                            <p class="mt-2 text-gray-700">Una malteada cremosa de chocolate, vainilla o fresa.</p>
+                            <p class="mt-4 text-2xl font-black text-gray-900">$8.00</p>
+                        </div>
+                        <div class="cow-card menu-item-clickable rounded-lg p-6 shadow-xl transform hover:scale-105 transition-transform duration-300 cursor-pointer" data-image="https://i.imgur.com/DPyBF6b.jpeg" data-title="Bebidas Frescas" data-description="Pregunta por nuestras deliciosas y refrescantes aguas frescas del día.">
+                            <h4 class="text-xl font-black text-gray-900 uppercase">Bebidas</h4>
+                            <p class="mt-2 text-gray-700">Aguas frescas del día. ¡Pregunta por los sabores!</p>
+                            <p class="mt-4 text-2xl font-black text-gray-900">$2.50</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gemini AI Features Section -->
+            <section id="ai-features" class="mt-20">
+                 <!-- Chef's Suggestion -->
+                <div class="mb-16">
+                    <h2 class="text-4xl font-black text-center text-amber-400 mb-4">Sugerencia del Chef ✨</h2>
+                    <p class="text-center text-lg text-gray-300 mb-6">¿No sabes qué probar? ¡Deja que nuestro chef con inteligencia artificial te sorprenda!</p>
+                    <div class="text-center">
+                        <button id="getSuggestion" class="bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold py-3 px-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                           ¡Sorpréndeme, Chef!
+                        </button>
+                    </div>
+                    <div id="suggestionResult" class="cow-card max-w-3xl mx-auto p-8 rounded-lg shadow-2xl mt-8" style="display: none;">
+                         <div id="suggestionLoader" class="loader" style="display: none;"></div>
+                         <p id="suggestionText" class="text-lg"></p>
+                    </div>
+                </div>
+
+                <!-- Perfect Order Recommender -->
+                <div>
+                    <h2 class="text-4xl font-black text-center text-amber-400 mb-4">Recomiéndame un Pedido 🤖</h2>
+                    <p class="text-center text-lg text-gray-300 mb-6">Dinos qué se te antoja y te daremos la combinación perfecta.</p>
+                    <div class="cow-card max-w-3xl mx-auto p-8 rounded-lg shadow-2xl">
+                        <div class="mb-6">
+                            <label for="cravingInput" class="block text-lg font-bold text-gray-800 mb-2">¿De qué tienes ganas hoy?</label>
+                            <input type="text" id="cravingInput" name="cravingInput" class="w-full p-3 rounded-md bg-white border-2 border-gray-300 text-gray-900 focus:border-amber-500 focus:ring-amber-500 transition" placeholder="Ej: algo picoso y con queso para dos personas">
+                        </div>
+                        <div class="text-center">
+                            <button id="getRecommendation" class="bg-amber-500 hover:bg-amber-600 text-gray-900 font-bold py-3 px-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300">
+                                ✨ Encontrar mi Pedido
+                            </button>
+                        </div>
+                         <div id="recommendationResult" class="mt-6 text-gray-800" style="display: none;">
+                            <div id="recommendationLoader" class="loader" style="display: none;"></div>
+                            <p id="recommendationText" class="text-lg"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Order Form Section -->
+            <section id="pedido" class="mt-20">
+                <h2 class="text-4xl font-black text-center text-amber-400 mb-10 border-b-4 border-amber-400/50 pb-4">Haz tu Pedido por Mensaje</h2>
+                <div class="cow-card max-w-3xl mx-auto p-8 rounded-lg shadow-2xl">
+                    <form id="orderForm">
+                        <div class="mb-6">
+                            <label for="customerName" class="block text-lg font-bold text-gray-800 mb-2">Tu Nombre:</label>
+                            <input type="text" id="customerName" name="customerName" class="w-full p-3 rounded-md bg-white border-2 border-gray-300 text-gray-900 focus:border-amber-500 focus:ring-amber-500 transition" required>
+                        </div>
+                        <div class="mb-6">
+                            <label for="customerOrder" class="block text-lg font-bold text-gray-800 mb-2">Tu Pedido:</label>
+                            <textarea id="customerOrder" name="customerOrder" rows="5" class="w-full p-3 rounded-md bg-white border-2 border-gray-300 text-gray-900 focus:border-amber-500 focus:ring-amber-500 transition" placeholder="Ej: 2 Tacos de Birria y 1 Vaca de Asada" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300 flex items-center justify-center mx-auto">
+                                <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.487 5.235 3.487 8.413 0 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.433-9.89-9.889-9.89-5.452 0-9.887 4.434-9.889 9.891.001 2.23.654 4.385 1.873 6.062l-1.17 4.244 4.253-1.159z"/></svg>
+                                Enviar Pedido por WhatsApp
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Galería del Sabor Section -->
+            <section id="galeria" class="mt-20">
+                <h2 class="text-4xl font-black text-center text-amber-400 mb-10 border-b-4 border-amber-400/50 pb-4">Galería del Sabor</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Image 1 -->
+                    <figure class="relative overflow-hidden rounded-lg shadow-lg group h-80">
+                        <img src="https://i.imgur.com/zssCxKF.jpeg" alt="Nuestra Vaca (Quesabirria)" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <figcaption class="absolute inset-0 bg-black bg-opacity-70 p-4 text-white flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <h5 class="font-black text-lg text-amber-400">La Vaca (Quesabirria)</h5>
+                            <p class="text-sm">Doradita y llena de queso, la estrella de la casa.</p>
+                        </figcaption>
+                    </figure>
+                    <!-- Image 2 -->
+                    <figure class="relative overflow-hidden rounded-lg shadow-lg group h-80">
+                        <img src="https://i.imgur.com/UtKG3Np.jpeg" alt="Tacos variados" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <figcaption class="absolute inset-0 bg-black bg-opacity-70 p-4 text-white flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <h5 class="font-black text-lg text-amber-400">Variedad Para Todos</h5>
+                            <p class="text-sm">Birria, cabeza, pastor... ¡Pide los tuyos y arma tu plato ideal!</p>
+                        </figcaption>
+                    </figure>
+                    <!-- Image 3 -->
+                    <figure class="relative overflow-hidden rounded-lg shadow-lg group h-80">
+                        <img src="https://i.imgur.com/GLwp2Tv.jpeg" alt="Preparación de carne a la plancha" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <figcaption class="absolute inset-0 bg-black bg-opacity-70 p-4 text-white flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <h5 class="font-black text-lg text-amber-400">Hecho al Momento</h5>
+                            <p class="text-sm">Carne jugosa, preparada al instante para garantizar el mejor sabor.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </section>
+            
+            <!-- Reviews Section -->
+            <section id="reviews" class="mt-20">
+                <h2 class="text-4xl font-black text-center text-amber-400 mb-10 border-b-4 border-amber-400/50 pb-4">Lo que Dicen Nuestros Clientes</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Review 1 -->
+                    <div class="cow-card rounded-lg p-6 shadow-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="font-bold text-lg text-gray-900">Cesar Aparicio</div>
+                            <div class="ml-auto text-amber-500 flex items-center">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-700">"Taqueria La Vaca in Tucson is a true gem for lovers of authentic Sonora-style Mexican food... The handmade corn tortillas are exceptional, reflecting the essence of Sonoran cuisine."</p>
+                    </div>
+                    <!-- Review 2 -->
+                     <div class="cow-card rounded-lg p-6 shadow-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="font-bold text-lg text-gray-900">Monica Ramirez</div>
+                             <div class="ml-auto text-amber-500 flex items-center">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-700">"We were passing by Tucson and decided to go and try Taqueria la Vaca best decision ever. It was so delicious and we are from California and I mean they sell the best queso birrias."</p>
+                    </div>
+                    <!-- Review 3 -->
+                     <div class="cow-card rounded-lg p-6 shadow-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="font-bold text-lg text-gray-900">Local Guide 89</div>
+                             <div class="ml-auto text-amber-500 flex items-center">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-700">"Hands down one of the best, if not the best Taco I have ever eaten in my life. The vaca birria taco is an absolutely piece of heaven in a corn tortilla."</p>
+                    </div>
+                     <!-- Review 4 -->
+                    <div class="cow-card rounded-lg p-6 shadow-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="font-bold text-lg text-gray-900">Jesse Cortez</div>
+                             <div class="ml-auto text-amber-500 flex items-center">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-700">"Hands down the best pastor tacos I’ve ever had. It pairs good with a fresca. On my way back to California I’ll stop again."</p>
+                    </div>
+                    <!-- Review 5 -->
+                     <div class="cow-card rounded-lg p-6 shadow-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="font-bold text-lg text-gray-900">Miriam Camano</div>
+                             <div class="ml-auto text-amber-500 flex items-center">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-700">"Very friendly, gives that home feeling when you walk in. The whole building has cow print... And the food, absolutely amazing!!!"</p>
+                    </div>
+                     <!-- Review 6 -->
+                    <div class="cow-card rounded-lg p-6 shadow-xl">
+                        <div class="flex items-center mb-4">
+                            <div class="font-bold text-lg text-gray-900">Jonathan Northcote</div>
+                            <div class="ml-auto text-amber-500 flex items-center">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-700">"I ordered a burrito and it was literally the best burrito I think I may have ever had in all of Arizona and Mexico."</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Encuéntranos Section -->
+            <section id="contacto" class="mt-20">
+                <h2 class="text-4xl font-black text-center text-amber-400 mb-10 border-b-4 border-amber-400/50 pb-4">Encuéntranos</h2>
+                <div class="bg-gray-800/80 backdrop-blur-sm rounded-lg p-8 shadow-lg max-w-5xl mx-auto">
+                    <div class="md:flex md:justify-around md:items-center text-center md:text-left">
+                        <!-- Dirección y Horarios -->
+                        <div class="mb-8 md:mb-0">
+                            <h3 class="text-2xl font-bold text-amber-400">Dirección</h3>
+                            <p class="mt-2 text-lg">347 E 36th St</p>
+                            <p class="text-lg">Tucson, AZ 85713</p>
+                            <h3 class="text-2xl font-bold text-amber-400 mt-6">Llámanos</h3>
+                            <a href="tel:+15203122191" class="mt-2 text-lg text-white hover:text-amber-300 transition-colors">(520) 312-2191</a>
+                            <p class="mt-4 text-sm text-gray-400">¡Visítanos y prueba los mejores tacos de Tucson!</p>
+                        </div>
+                        <div class="border-l-2 border-gray-700 mx-8 hidden md:block"></div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-amber-400">Horario</h3>
+                            <p class="mt-2 text-lg"><strong>Lunes a Jueves:</strong> 8:00 AM - 10:00 PM</p>
+                            <p class="text-lg"><strong>Viernes a Sábado:</strong> 8:00 AM - 12:00 AM</p>
+                            <p class="text-lg"><strong>Domingo:</strong> 8:00 AM - 10:00 PM</p>
+                        </div>
+                    </div>
+                    <!-- Google Maps Embed -->
+                    <div class="mt-8 rounded-lg overflow-hidden shadow-2xl">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3376.536768393529!2d-110.9666!3d32.1884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86d67b0eaaaaaaab%3A0x442c67995166c303!2s347%20E%2036th%20St%2C%20Tucson%2C%20AZ%2085713!5e0!3m2!1sen!2sus!4v1672810000000!5m2!1sen!2sus" 
+                            width="100%" 
+                            height="450" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 mt-12 py-8 border-t-4 border-amber-400">
+        <div class="container mx-auto px-6 text-center">
+             <a href="#top" class="inline-block mb-6">
+                <img src="https://i.imgur.com/AiqsrYm.jpg" alt="Volver Arriba" class="h-20 w-20 mx-auto rounded-full shadow-lg transform hover:scale-110 transition-transform duration-300">
+            </a>
+            <h3 class="text-2xl font-bold text-amber-400">¡Síguenos en Redes!</h3>
+            <p class="text-3xl font-black mt-2">#LaVaquitaAdictacos</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                 <!-- Facebook Icon -->
+                 <a href="https://www.facebook.com/quesabirrias520/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
+                 <!-- Placeholder for other social media icons -->
+                 <a href="#" class="text-gray-400 hover:text-white transition-colors"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2H1C.4 2 0 2.4 0 3v5c0 .6.4 1 1 1h7c.6 0 1-.4 1-1V3c0-.6-.4-1-1-1zm0 11H1c-.6 0-1 .4-1 1v5c0 .6.4 1 1 1h7c.6 0 1-.4 1-1v-5c0-.6-.4-1-1-1zM19 2h-7c-.6 0-1 .4-1 1v5c0 .6.4 1 1 1h7c.6 0 1-.4 1-1V3c0-.6-.4-1-1-1zm0 11h-7c-.6 0-1 .4-1 1v5c0 .6.4 1 1 1h7c.6 0 1-.4 1-1v-5c0-.6-.4-1-1-1z"/></svg></a>
+                 <a href="#" class="text-gray-400 hover:text-white transition-colors"><svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.999 2C6.476 2 2 6.476 2 12s4.476 10 9.999 10C17.522 22 22 17.522 22 12S17.522 2 11.999 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1.07-5.542l.793 1.112c.16.223.47.28.692.14l4.5-2.812c.222-.14.28-.45.14-.693l-1.11-4.43c-.14-.223-.45-.28-.694-.14l-4.5 2.813c-.222-.14-.28.45-.14.693l.72 2.872-2.873-.718c-.243-.06-.45.11-.39.35l1.11 4.43c.06.243.32.39.563.313l2.812-1.125-1.125 2.813c-.06.244.11.45.35.39l4.43-1.11c.243-.06.39-.32.312-.563l-2.81-4.5c-.06-.243-.28-.39-.5-.313l-2.875.72.72-2.874c.06-.244-.11-.45-.35-.39l-4.43 1.11c-.243-.06-.39.32-.313.563l2.812 4.5c.06.243.28.39.5.313l2.875-.72z"/></svg></a>
+            </div>
+             <p class="text-gray-500 text-sm mt-6">&copy; 2024 La Vaquita Adictacos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Structure -->
+    <div id="imageModal" class="modal fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 opacity-0 pointer-events-none">
+        <div class="bg-white rounded-lg shadow-2xl max-w-lg w-full transform transition-transform duration-300 scale-95">
+            <img id="modalImage" src="" alt="Imagen del platillo" class="rounded-t-lg w-full h-auto max-h-96 object-cover">
+            <div class="p-6 text-gray-800">
+                <h3 id="modalTitle" class="text-2xl font-black mb-2"></h3>
+                <p id="modalDescription" class="text-gray-700"></p>
+            </div>
+        </div>
+        <button id="closeModal" class="absolute top-4 right-4 text-white text-4xl font-bold">&times;</button>
+    </div>
+
+    <script>
+        // Modal JavaScript
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const closeModal = document.getElementById('closeModal');
+        const clickableItems = document.querySelectorAll('.menu-item-clickable');
+
+        clickableItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imageUrl = item.dataset.image;
+                const title = item.dataset.title;
+                const description = item.dataset.description;
+
+                modalImage.src = imageUrl;
+                modalTitle.textContent = title;
+                modalDescription.textContent = description;
+                
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.querySelector('div').classList.remove('scale-95');
+            });
+        });
+
+        function hideModal() {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.querySelector('div').classList.add('scale-95');
+        }
+
+        closeModal.addEventListener('click', hideModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                hideModal();
+            }
+        });
+
+        // WhatsApp Order Form JavaScript
+        document.getElementById('orderForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+
+            // Get form values
+            const customerName = document.getElementById('customerName').value;
+            const customerOrder = document.getElementById('customerOrder').value;
+            const businessPhoneNumber = '15203122191'; // Your business phone number without '+' or spaces
+
+            // Create the message
+            const message = `Hola Taquería La Vaca, mi nombre es ${customerName}. Quiero hacer el siguiente pedido:\n\n${customerOrder}`;
+            
+            // Encode the message for the URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Create the WhatsApp URL
+            const whatsappUrl = `https://wa.me/${businessPhoneNumber}?text=${encodedMessage}`;
+            
+            // Open WhatsApp in a new tab
+            window.open(whatsappUrl, '_blank');
+        });
+
+        // Gemini API Features
+        const getSuggestionBtn = document.getElementById('getSuggestion');
+        const suggestionResultDiv = document.getElementById('suggestionResult');
+        const suggestionLoader = document.getElementById('suggestionLoader');
+        const suggestionText = document.getElementById('suggestionText');
+        
+        const getRecommendationBtn = document.getElementById('getRecommendation');
+        const recommendationResultDiv = document.getElementById('recommendationResult');
+        const recommendationLoader = document.getElementById('recommendationLoader');
+        const recommendationText = document.getElementById('recommendationText');
+        const cravingInput = document.getElementById('cravingInput');
+
+        const menuItems = [
+            "Pizzabirria", "Burrito de birria", "Ramen de Birria", "Quesabirria (La Vaca)", "Taco de Cabeza", "Taco de Pastor"
+        ];
+        
+        const fullMenu = `Pizzabirria: $26.00, Burritos (birria, cabeza, pastor, chicharrón, carne con chile colorado y carnitas): $15.00, Ramen de Birria: $9.00, La Vaca (Quesabirria): $7.50, Menudo (Galón): $25.00, Plato de Birria/Cabeza: $15.00, Tacos (Birria, Cabeza, Chicharrón, Pastor, Carne con Chile): $4.50, Helados: $4.00, Malteadas: $8.00, Bebidas: $2.50`;
+
+
+        async function callGemini(prompt) {
+            const apiKey = ""; // API Key will be handled by the environment
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+            
+            const payload = {
+                contents: [{
+                    parts: [{
+                        text: prompt
+                    }]
+                }]
+            };
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!response.ok) {
+                    throw new Error(`API request failed with status ${response.status}`);
+                }
+                const result = await response.json();
+                 if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    return result.candidates[0].content.parts[0].text;
+                } else {
+                    return "No se pudo obtener una respuesta. Inténtalo de nuevo.";
+                }
+            } catch (error) {
+                console.error("Error calling Gemini API:", error);
+                return "Hubo un error al contactar al chef. Por favor, intenta más tarde.";
+            }
+        }
+
+        getSuggestionBtn.addEventListener('click', async () => {
+            suggestionResultDiv.style.display = 'block';
+            suggestionLoader.style.display = 'block';
+            suggestionText.textContent = '';
+            
+            const randomDish = menuItems[Math.floor(Math.random() * menuItems.length)];
+            const prompt = `Actúa como el chef de una taquería mexicana llamada 'La Vaquita Adictacos'. Escribe una descripción muy creativa y antojable para el especial del día, que hoy es '${randomDish}'. Usa un lenguaje vibrante y que dé hambre. Sé breve y directo.`;
+            
+            const suggestion = await callGemini(prompt);
+            
+            suggestionLoader.style.display = 'none';
+            suggestionText.textContent = suggestion;
+        });
+
+        getRecommendationBtn.addEventListener('click', async () => {
+            const craving = cravingInput.value;
+            if (!craving) {
+                alert("Por favor, dinos de qué tienes antojo.");
+                return;
+            }
+
+            recommendationResultDiv.style.display = 'block';
+            recommendationLoader.style.display = 'block';
+            recommendationText.textContent = '';
+
+            const prompt = `Eres un mesero experto y amigable en la taquería 'La Vaquita Adictacos'. Un cliente te dice que tiene antojo de '${craving}'. Basado en el siguiente menú: ${fullMenu}, sugiérele una combinación perfecta. Sé creativo, amigable y describe por qué tu sugerencia es la mejor opción para su antojo.`;
+            
+            const recommendation = await callGemini(prompt);
+
+            recommendationLoader.style.display = 'none';
+            recommendationText.textContent = recommendation;
+        });
+
+    </script>
+
+</body>
+</html>
